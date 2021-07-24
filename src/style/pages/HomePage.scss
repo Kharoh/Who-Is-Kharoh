@@ -1,2 +1,21 @@
 #HomePage {
+  header {
+    min-height: 80vh;
+
+    background-color: var(--dark-grey-color);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .logo-element {
+      max-height: 30vh;
+      filter: drop-shadow(0 3.5vh 2.5vh rgba(0, 0, 0, 0.5));
+    }
+  }
+
+  main {
+    min-height: 150vh;
+  }
 }

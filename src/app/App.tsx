@@ -1,5 +1,11 @@
 /* Import the modules */
 import React from 'react'
+import assets from '../assets/assets'
+
+/* Import contexts */
+import {
+  Assets
+} from '../context'
 
 /* Import pages components */
 import HomePage from '../components/pages/HomePage'
@@ -12,11 +18,15 @@ const App = () => {
 
   /* Return the mobile page // this page will be designed later */
   if (window.innerWidth < 768) {
-    return <MobilePage />
+    return <Assets.Provider value={assets}>
+      <MobilePage />
+    </Assets.Provider>
   }
 
   /* Return the home page */
-  return <HomePage />
+  return <Assets.Provider value={assets}>
+    <HomePage />
+  </Assets.Provider>
 }
 
 export default App
