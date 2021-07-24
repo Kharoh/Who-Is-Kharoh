@@ -1,0 +1,19 @@
+{
+  "name": "portfolio",
+  "version": "0.0.0",
+  "description": "official portfolio.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kharoh/Who-Is-Kharoh.git"
+  },
+  "author": "kharoh",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Kharoh/Who-Is-Kharoh/issues"
+  },
+  "homepage": "https://github.com/Kharoh/Who-Is-Kharoh#readme"
+}
