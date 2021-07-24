@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,700;0,800;0,900;1,200;1,400;1,500;1,700;1,900&display=swap");
+
+/* Declare the global css variables */
+:root {
+  --grey-color: rgb(170, 170, 170);
+  --pink-color: #f3abfd;
+  --blue-color: #8bc3f7;
+  --yellow-color: #f8ed93;
+  --green-color: #abfdb9;
+  --brown-color: #a2715e;
+
+  --families-gradient: var(--pink-color), var(--blue-color), var(--yellow-color), var(--green-color);
+
+  --gold-texture-gradient: 105deg, #ffe572, #a29146;
+  --silver-texture-gradient: 105deg, #d4eaea, #84b0b0;
+  --bronze-texture-gradient: 105deg, #dfac6d, #715839;
+  --iron-texture-gradient: 105deg, #e8e8e8, #aeaeae;
+
+  --harvest-color: lightgreen;
+  --craft-color: lightskyblue;
+  --trade-color: lightsalmon;
+
+  --enable: #50c697;
+  --disable: #f78989;
+}
+
+/* Set default properties for some html elements */
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+div,
+body {
+  // scrollbar-color: black transparent;
+  // scrollbar-width: none;
+}
+
+img {
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Set default margin for all titles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
