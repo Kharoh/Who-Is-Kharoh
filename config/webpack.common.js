@@ -2,7 +2,7 @@ const path = require('path');
 const globImporter = require('node-sass-glob-importer');
 
 module.exports = {
-  entry: './src/frontend/index.tsx',
+  entry: './src/app/index.tsx',
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
