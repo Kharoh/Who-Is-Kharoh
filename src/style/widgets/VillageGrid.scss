@@ -1,0 +1,12 @@
+#VillageGrid {
+  --cell-size: calc(var(--header-size) / 20);
+
+  height: var(--header-size); // The full header size written in HomePage.scss
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(33, var(--cell-size));
+  grid-template-rows: repeat(19, var(--cell-size));
+  align-content: center;
+  justify-content: center;
+}
