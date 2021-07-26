@@ -12,6 +12,7 @@ const Chunk = (props: ChunkProps) => {
     building = <Building
       name={props.buildingName}
       color={props.buildingColor || "brown"}
+      style={props.buildingStyle}
     />
 
   return (
@@ -43,7 +44,11 @@ interface ChunkProps {
   /**
    * Custom style properties.
    */
-  style: React.CSSProperties
+  style?: React.CSSProperties
+  /**
+   * Custom style properties applied to the building image.
+   */
+  buildingStyle?: React.CSSProperties
 }
 
 export default Chunk
