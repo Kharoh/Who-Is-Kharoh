@@ -10,6 +10,11 @@
   --green-color: #abfdb9;
   --brown-color: #a2715e;
 
+  --plains-color: lightgreen;
+  --forest-color: #228b22;
+  --desert-color: #f5f582;
+  --mountains-color: #9e9e9e;
+
   --families-gradient: var(--pink-color), var(--blue-color), var(--yellow-color), var(--green-color);
 
   --gold-texture-gradient: 105deg, #ffe572, #a29146;
@@ -38,11 +43,11 @@ body {
   scroll-behavior: smooth;
 }
 
-div,
-body {
-  // scrollbar-color: black transparent;
-  // scrollbar-width: none;
-}
+// div,
+// body {
+//   // scrollbar-color: black transparent;
+//   // scrollbar-width: none;
+// }
 
 img {
   user-select: none;

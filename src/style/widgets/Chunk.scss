@@ -1,0 +1,24 @@
+.Chunk {
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  .Building {
+    margin-bottom: 15%;
+    max-width: 80%;
+
+    filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.5));
+
+    transition: transform .15s;
+  }
+
+  &:hover {
+    .Building {
+      transform: translateY(-30%);
+    }
+  }
+}

@@ -1,16 +1,49 @@
 import React, { useState, useEffect } from 'react'
 
-import { BuildingColor, BuildingName } from '../../../global'
+import { BuildingColor, BuildingName, ChunkColor } from '../../../global'
+
+import Building from '../Building'
 
 const Chunk = (props: ChunkProps) => {
+
+  /* Create the building element displayed on the chunk */
+  let building: React.ReactNode = ''
+  if (props.buildingName)
+    building = <Building
+      name={props.buildingName}
+      color={props.buildingColor || "brown"}
+    />
+
   return (
-    <div className="Chunk"></div>
+    <div
+      className="Chunk"
+      style={{ backgroundColor: `var(--${props.chunkColor}-color`, ...(props.style ? props.style : {}) }}
+    >
+      {building}
+    </div >
   )
 }
 
 interface ChunkProps {
-  buildingName: BuildingName
-  buildingColor: BuildingColor
+  /**
+   * The name of the building to build on the chunk.
+   */
+  buildingName?: BuildingName
+  /**
+   * The color of the building to build on the chunk. 
+   * Sometimes, even specifying a color will let the building brown.
+   */
+  buildingColor?: BuildingColor
+
+  /**
+   * The color or the biome of the chunk.
+   */
+  chunkColor: ChunkColor
+
+  /**
+   * Custom style properties.
+   */
+  style: React.CSSProperties
 }
 
 export default Chunk

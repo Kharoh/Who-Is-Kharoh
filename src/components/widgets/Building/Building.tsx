@@ -7,11 +7,10 @@ import { Assets } from '../../../context'
 const Building = (props: BuildingProps) => {
   const assets = useContext(Assets)
 
-  return (
-    <div className="Building">
-      <img src={assets.images[props.color][props.name]} alt={props.name} />
-    </div>
-  )
+  return <img
+    className="Building"
+    src={assets.images[props.color][props.name]}
+    alt={props.name} />
 }
 
 interface BuildingProps {

@@ -12,3 +12,14 @@ export type BuildingColor =
   | "blue"
   | "yellow"
   | "green"
+
+export type ChunkColor =
+  | "plains"
+  | "forest"
+  | "desert"
+  | "mountains"
+
+export interface Coordinates {
+  x: number
+  y: number
+}
