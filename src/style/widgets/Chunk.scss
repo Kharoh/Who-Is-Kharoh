@@ -1,6 +1,5 @@
 .Chunk {
-
-  cursor: pointer;
+  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -13,12 +12,41 @@
 
     filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.5));
 
-    transition: transform .15s;
+    transition: transform 0.15s;
+  }
+
+  .info {
+    height: 2vh;
+    width: 2vh;
+    position: absolute;
+    top: -1vh;
+    right: -0.5vh;
+
+    border-radius: 0.5vh;
+    background-color: rgba(255, 255, 255, 0.75);
+
+    transition: all 0.15s;
   }
 
   &:hover {
-    .Building {
+    &:not(.way) {
+      z-index: 1000 !important;
+    }
+
+    .Building:not(.way) {
+      cursor: pointer;
+      pointer-events: all;
+
       transform: translateY(-30%);
+    }
+
+    .info {
+      top: -8.5vh;
+      right: -4vh;
+      height: 8vh;
+      width: 12vh;
+
+      filter: drop-shadow(0 1px 5px rgba(0, 0, 0, 0.5));
     }
   }
 }

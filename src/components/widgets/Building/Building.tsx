@@ -8,7 +8,7 @@ const Building = (props: BuildingProps) => {
   const assets = useContext(Assets)
 
   return <img
-    className="Building"
+    className={"Building " + props.name}
     src={assets.images[props.color][props.name]}
     alt={props.name}
     style={props.style} />

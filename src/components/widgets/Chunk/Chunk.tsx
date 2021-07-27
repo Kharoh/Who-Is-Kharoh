@@ -15,12 +15,16 @@ const Chunk = (props: ChunkProps) => {
       style={props.buildingStyle}
     />
 
+  let infoBubble: React.ReactNode = ''
+  if (props.buildingName !== 'way') infoBubble = <div className="info" style={props.infoStyle}></div>
+
   return (
     <div
-      className="Chunk"
-      style={{ backgroundColor: `var(--${props.chunkColor}-color`, ...(props.style ? props.style : {}) }}
+      className={"Chunk " + props.buildingName}
+      style={{ ...(props.style ? props.style : {}) }}
     >
       {building}
+      {infoBubble}
     </div >
   )
 }
@@ -49,6 +53,10 @@ interface ChunkProps {
    * Custom style properties applied to the building image.
    */
   buildingStyle?: React.CSSProperties
+  /**
+   * Custom style properties applied to the info bubble.
+   */
+  infoStyle?: React.CSSProperties
 }
 
 export default Chunk

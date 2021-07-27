@@ -1,15 +1,29 @@
 #HomePage {
   --header-size: 80vh;
+  --nav-size: 20vh;
 
   header {
-    min-height: var(--header-size);
+    height: var(--header-size);
 
-    background-color: var(--plains-color);
+    background: linear-gradient(
+      -10deg,
+      var(--desert-color) 15%,
+      var(--plains-color),
+      var(--plains-color),
+      var(--plains-color)
+    );
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  nav {
+    height: var(--nav-size);
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px -30px 30px;
   }
 
   main {

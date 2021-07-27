@@ -6,12 +6,16 @@
   width: 100%;
 
   display: grid;
-  grid-template-columns: repeat(33, var(--cell-size));
-  grid-template-rows: repeat(19, var(--cell-size));
+  grid-template-columns: repeat(99, var(--cell-size));
+  grid-template-rows: repeat(99, var(--cell-size));
   align-content: center;
   justify-content: center;
 
   .Building {
+    animation: fadeAndTranslateFromTop 0.2s ease-out backwards;
+  }
+
+  .info {
     animation: fadeAndTranslateFromTop 0.2s ease-out backwards;
   }
 }

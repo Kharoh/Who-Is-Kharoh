@@ -38,12 +38,11 @@ const VillageGrid = (props: VillageGridProps) => {
   /* Get developed bones from a developing bone */
   const getDevelopedBones = (developingBone: VillageBone, skeletonLength: number): VillageBone[] => {
     const developedBones: VillageBone[] = []
-    let index = skeletonLength
     for (const direction of ['up', 'down', 'left', 'right'] as const) {
       const probabilityOfDeveloping =
-        direction === developingBone.developingDirection ? 0.9 : 0.3
+        direction === developingBone.developingDirection ? 0.9 : 0.15
       if (Math.random() < probabilityOfDeveloping) {
-        if (Math.random() < 0.7) {
+        if (Math.random() < 0.675) {
           developedBones.push({
             building: 'way',
             coordinates: getNewCoordinates(developingBone.coordinates, direction),
@@ -79,7 +78,7 @@ const VillageGrid = (props: VillageGridProps) => {
 
   /* Convert the coordinates of the skeleton to the coordinates of the grid. */
   const convertCoordinatesToGridCoordinates = (coordinates: Coordinates): Coordinates => {
-    return { y: coordinates.y + 10, x: coordinates.x + 17 }
+    return { y: coordinates.y + 50, x: coordinates.x + 50 }
   }
 
   /* Pick a random building color */
@@ -123,7 +122,7 @@ const VillageGrid = (props: VillageGridProps) => {
     },
   ]
 
-  for (let i = 0; i < 150; i++) {
+  for (let i = 0; i < 1000; i++) {
     villageSkeleton = developRandomBone(villageSkeleton)
   }
 
@@ -131,10 +130,10 @@ const VillageGrid = (props: VillageGridProps) => {
   const villageLayout = villageSkeleton.map((bone) => {
     const coordinates = convertCoordinatesToGridCoordinates(bone.coordinates)
 
-    const animation: React.CSSProperties = {}
-    if (bone.building === 'townhall') animation.animation = 'none'
-    else if (bone.building === 'way') animation.animationDelay = (0.1 * Math.abs(bone.index)) + 's'
-    else animation.animationDelay = (0.5 + 0.1 * Math.abs(bone.index)) + 's'
+    const buildingAnimation: React.CSSProperties = {}
+    if (bone.building === 'townhall') buildingAnimation.animation = 'none'
+    else if (bone.building === 'way') buildingAnimation.animationDelay = (0.1 * Math.abs(bone.index)) + 's'
+    else buildingAnimation.animationDelay = (0.5 + 0.1 * Math.abs(bone.index)) + 's'
 
     return (
       <Chunk
@@ -142,9 +141,12 @@ const VillageGrid = (props: VillageGridProps) => {
         style={{
           gridRow: coordinates.y,
           gridColumn: coordinates.x,
-          zIndex: coordinates.y,
+          zIndex: coordinates.y - coordinates.x,
         }}
-        buildingStyle={{ ...animation }}
+        buildingStyle={{ ...buildingAnimation }}
+        infoStyle={{
+          animationDelay: (1 + 0.1 * Math.abs(bone.index)) + 's'
+        }}
         buildingColor={pickRandomBuildingColor()}
         buildingName={bone.building}
         chunkColor="plains"

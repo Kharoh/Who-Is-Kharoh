@@ -12,6 +12,7 @@ const HomePage = (props: HomePageProps) => {
       <header>
         <VillageGrid />
       </header>
+      <nav></nav>
       <main></main>
     </div>
   )
