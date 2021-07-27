@@ -132,8 +132,8 @@ const VillageGrid = (props: VillageGridProps) => {
 
     const buildingAnimation: React.CSSProperties = {}
     if (bone.building === 'townhall') buildingAnimation.animation = 'none'
-    else if (bone.building === 'way') buildingAnimation.animationDelay = (0.1 * Math.abs(bone.index)) + 's'
-    else buildingAnimation.animationDelay = (0.5 + 0.1 * Math.abs(bone.index)) + 's'
+    else if (bone.building === 'way') buildingAnimation.animationDelay = (0.05 * Math.abs(bone.index)) + 's'
+    else buildingAnimation.animationDelay = (0.5 + 0.05 * Math.abs(bone.index)) + 's'
 
     return (
       <Chunk
@@ -145,7 +145,7 @@ const VillageGrid = (props: VillageGridProps) => {
         }}
         buildingStyle={{ ...buildingAnimation }}
         infoStyle={{
-          animationDelay: (1 + 0.1 * Math.abs(bone.index)) + 's'
+          animationDelay: (1 + 0.05 * Math.abs(bone.index)) + 's'
         }}
         buildingColor={pickRandomBuildingColor()}
         buildingName={bone.building}

@@ -1,2 +1,4 @@
 import Assets from './Assets'
-export { Assets }
+import UserInfos from './UserInfos'
+import Utils from './Utils'
+export { Assets, UserInfos, Utils }
