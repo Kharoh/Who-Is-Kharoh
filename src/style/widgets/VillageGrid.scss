@@ -1,13 +1,13 @@
 #VillageGrid {
-  --cell-size: calc(var(--header-size) / 20);
+  --cell-height: calc(var(--header-height) / 20);
 
   position: relative;
-  height: var(--header-size); // The full header size written in HomePage.scss
+  height: var(--header-height); // The full header height written in HomePage.scss
   width: 100%;
 
   display: grid;
-  grid-template-columns: repeat(99, var(--cell-size));
-  grid-template-rows: repeat(99, var(--cell-size));
+  grid-template-columns: repeat(99, var(--cell-height));
+  grid-template-rows: repeat(99, var(--cell-height));
   align-content: center;
   justify-content: center;
 

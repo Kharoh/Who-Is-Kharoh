@@ -1,7 +1,7 @@
 const generatePickUserName = (setUserInfos: Function) => {
   return () => {
     const userName = 'test'
-    setUserInfos({ name: userName })
+    setUserInfos({ name: userName, isUserNamePicked: true })
   }
 }
 

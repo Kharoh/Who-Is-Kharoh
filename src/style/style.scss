@@ -7,12 +7,13 @@ font-family: 'Montserrat Alternates', sans-serif;
 /* Declare the global css variables */
 :root {
   --dark-grey-color: #2e2e2e;
-  // --grey-color: rgb(170, 170, 170);
+  --light-grey-color: #e1e1e1;
   --pink-color: #f3abfd;
   --blue-color: #8bc3f7;
   --yellow-color: #f8ed93;
   --green-color: #abfdb9;
   --brown-color: #a2715e;
+  --blurple-color: #7289da;
 
   --plains-color: lightgreen;
   --forest-color: #228b22;
@@ -47,12 +48,6 @@ body {
   scroll-behavior: smooth;
 }
 
-// div,
-// body {
-//   // scrollbar-color: black transparent;
-//   // scrollbar-width: none;
-// }
-
 img {
   user-select: none;
   pointer-events: none;
@@ -66,13 +61,34 @@ h4,
 h5,
 h6 {
   margin: 0;
-  user-select: none;
 }
 
 /* Text default styles */
-h2 {
-  font-size: 5vw;
+h1,
+h3 {
+  font-size: min(45px, 5vw);
   font-weight: 600;
+}
+
+h2 {
+  font-size: min(80px, 7vw);
+  font-weight: 600;
+  user-select: none;
+}
+
+h6 {
+  font-size: 20px;
+  font-weight: 500;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--blue-color);
+}
+
+p {
+  font-size: 20px;
+  margin: 30px 0;
+  font-weight: 500;
 }
 
 .alternate {

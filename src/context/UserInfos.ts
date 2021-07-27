@@ -1,7 +1,8 @@
 import React from 'react'
 
 const defaultUserInfos = {
-  name: 'Visiteur'
+  name: 'Visiteur',
+  isUserNamePicked: false,
 } as const
 
 export default React.createContext(defaultUserInfos)

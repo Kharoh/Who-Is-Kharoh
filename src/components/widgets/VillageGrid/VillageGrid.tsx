@@ -36,7 +36,7 @@ const VillageGrid = (props: VillageGridProps) => {
   }
 
   /* Get developed bones from a developing bone */
-  const getDevelopedBones = (developingBone: VillageBone, skeletonLength: number): VillageBone[] => {
+  const getDevelopedBones = (developingBone: VillageBone): VillageBone[] => {
     const developedBones: VillageBone[] = []
     for (const direction of ['up', 'down', 'left', 'right'] as const) {
       const probabilityOfDeveloping =
@@ -47,14 +47,12 @@ const VillageGrid = (props: VillageGridProps) => {
             building: 'way',
             coordinates: getNewCoordinates(developingBone.coordinates, direction),
             developingDirection: direction,
-            index: ++skeletonLength
           })
         }
         else {
           developedBones.push({
             building: getRandomBuildingName(),
             coordinates: getNewCoordinates(developingBone.coordinates, direction),
-            index: ++skeletonLength
           })
         }
       }
@@ -67,7 +65,7 @@ const VillageGrid = (props: VillageGridProps) => {
     skeleton = skeleton.slice()
     const developingBone = pickRandomDevelopingBone(skeleton)
 
-    const possibleDevelopedBones = getDevelopedBones(developingBone, skeleton.length)
+    const possibleDevelopedBones = getDevelopedBones(developingBone)
     for (const developedBone of possibleDevelopedBones) {
       if (skeleton.find(bone => matchCoordinates(bone.coordinates, developedBone.coordinates))) continue
       skeleton.push(developedBone)
@@ -87,53 +85,55 @@ const VillageGrid = (props: VillageGridProps) => {
     return colors[Math.floor(Math.random() * colors.length)]
   }
 
-  /* Create an array containing the skeleton of the village, will be used to store developing bones */
-  let villageSkeleton: VillageSkeleton = [
-    /* The townhall bone */
-    {
-      building: 'townhall',
-      coordinates: { x: 0, y: 0 },
-      index: 0,
-    },
-    /* The first way bone */
-    {
-      building: 'way',
-      coordinates: { x: 0, y: 1 },
-      index: 1,
-    },
-    /* The ways around the first way */
-    {
-      building: 'way',
-      coordinates: { x: -1, y: 1 },
-      developingDirection: 'left',
-      index: 2,
-    },
-    {
-      building: 'way',
-      coordinates: { x: 1, y: 1 },
-      developingDirection: 'right',
-      index: 4,
-    },
-    {
-      building: 'way',
-      coordinates: { x: 0, y: 2 },
-      developingDirection: 'down',
-      index: 3,
-    },
-  ]
+  const generateBaseSkeleton = (coordinates: Coordinates): VillageSkeleton => {
+    return [
+      /* The townhall bone */
+      {
+        building: 'townhall',
+        coordinates: { x: coordinates.x, y: coordinates.y },
+      },
+      /* The first way bone */
+      {
+        building: 'way',
+        coordinates: { x: coordinates.x, y: coordinates.y + 1 },
+      },
+      /* The ways around the first way */
+      {
+        building: 'way',
+        coordinates: { x: coordinates.x - 1, y: coordinates.y + 1 },
+        developingDirection: 'left',
+      },
+      {
+        building: 'way',
+        coordinates: { x: coordinates.x + 1, y: coordinates.y + 1 },
+        developingDirection: 'right',
+      },
+      {
+        building: 'way',
+        coordinates: { x: coordinates.x, y: coordinates.y + 2 },
+        developingDirection: 'down',
+      },
+    ]
+  }
 
-  for (let i = 0; i < 1000; i++) {
-    villageSkeleton = developRandomBone(villageSkeleton)
+  let village1Skeleton = generateBaseSkeleton({ x: 0, y: 0 })
+  let village2Skeleton = generateBaseSkeleton({ x: 17, y: -7 })
+  let village3Skeleton = generateBaseSkeleton({ x: -17, y: -7 })
+
+  for (let i = 0; i < 250; i++) {
+    village1Skeleton = developRandomBone(village1Skeleton)
+    village2Skeleton = developRandomBone(village2Skeleton)
+    village3Skeleton = developRandomBone(village3Skeleton)
   }
 
   /* The layout of the village */
-  const villageLayout = villageSkeleton.map((bone) => {
+  const villageLayout = village1Skeleton.concat(...village2Skeleton, ...village3Skeleton).map((bone, index) => {
     const coordinates = convertCoordinatesToGridCoordinates(bone.coordinates)
 
     const buildingAnimation: React.CSSProperties = {}
-    if (bone.building === 'townhall') buildingAnimation.animation = 'none'
-    else if (bone.building === 'way') buildingAnimation.animationDelay = (0.05 * Math.abs(bone.index)) + 's'
-    else buildingAnimation.animationDelay = (0.5 + 0.05 * Math.abs(bone.index)) + 's'
+    if (bone.building === 'townhall') buildingAnimation.animationDelay = (0.005 * Math.abs(index)) + 's'
+    else if (bone.building === 'way') buildingAnimation.animationDelay = (0.005 * Math.abs(index)) + 's'
+    else buildingAnimation.animationDelay = (0.05 + 0.005 * Math.abs(index)) + 's'
 
     return (
       <Chunk
@@ -141,11 +141,11 @@ const VillageGrid = (props: VillageGridProps) => {
         style={{
           gridRow: coordinates.y,
           gridColumn: coordinates.x,
-          zIndex: coordinates.y - coordinates.x,
+          zIndex: coordinates.y,
         }}
         buildingStyle={{ ...buildingAnimation }}
         infoStyle={{
-          animationDelay: (1 + 0.05 * Math.abs(bone.index)) + 's'
+          animationDelay: (1 + 0.005 * Math.abs(index)) + 's'
         }}
         buildingColor={pickRandomBuildingColor()}
         buildingName={bone.building}
@@ -177,10 +177,6 @@ interface VillageBone {
    * x: 0, y: 0 is the center of the grid. It corresponds to the townhall.
    */
   coordinates: Coordinates
-  /**
-   * The order of construction of the bone
-   */
-  index: number
   /**
    * The direction in which the bone is developing if it is a way.
    * If a way has no developing direction remaning, it has already been developed.
