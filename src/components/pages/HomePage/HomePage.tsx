@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 
 import { Assets, UserInfos, Utils } from '../../../context'
+import Timer from '../../widgets/Timer'
 
 import VillageGrid from '../../widgets/VillageGrid'
 
@@ -51,6 +52,7 @@ const HomePage = (props: HomePageProps) => {
       </section>
       <section className="age">
         <div className="left-side">
+          <Timer date={1053900000000} />
         </div>
         <div className="right-side">
           <h6>L'âge</h6>
@@ -63,6 +65,9 @@ const HomePage = (props: HomePageProps) => {
         Ne me demandez pas mes couleurs préférées, demandez-moi mes couleurs.
       </section>
       <section className="activities"></section>
+      <section className="projects"></section>
+      <section className="contributed"></section>
+      <section className="technos"></section>
       <footer></footer>
     </div>
   )
