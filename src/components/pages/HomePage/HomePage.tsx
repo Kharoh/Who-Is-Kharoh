@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react'
 
 import { Assets, UserInfos, Utils } from '../../../context'
-import Timer from '../../widgets/Timer'
 
 import VillageGrid from '../../widgets/VillageGrid'
+import Timer from '../../widgets/Timer'
+import Name from '../../widgets/Name'
 
 const HomePage = (props: HomePageProps) => {
   const assets = useContext(Assets)
@@ -16,7 +17,7 @@ const HomePage = (props: HomePageProps) => {
         <VillageGrid />
       </header>
       <nav>
-        <h2>Bienvenue, <span className="alternate">{userInfos.name}</span>.</h2>
+        <h2>Bienvenue, <Name size="medium" /></h2>
       </nav>
       <section className="kharoh">
         <div className="left-side">

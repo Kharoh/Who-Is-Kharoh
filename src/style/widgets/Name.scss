@@ -1,0 +1,21 @@
+.Name {
+  width: 30vw;
+  display: inline-block;
+
+  line-height: 45px;
+  white-space: normal;
+  text-align: left;
+  font-weight: 600;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-style: italic;
+  color: var(--dark-grey-color);
+  
+  &.medium {
+    font-size: min(80px, 7vw);
+    
+    &.long {
+      vertical-align: middle;
+      font-size: 50px;
+    }
+  }
+}

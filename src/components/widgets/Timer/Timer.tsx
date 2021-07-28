@@ -19,23 +19,29 @@ const Timer = (props: TimerProps) => {
   const days = Math.floor((duration / 86400000) % 365)
   const years = Math.floor(duration / 31536000000)
 
-
   return (
-    <div id="Timer">
+    <div className="Timer">
       <div className="years">
         {years}
+        <div className="sub">ans</div>
       </div>
-      <div className="days">
-        {days}
-      </div>
-      <div className="hours">
-        {hours}
-      </div>
-      <div className="minutes">
-        {minutes}
-      </div>
-      <div className="seconds">
-        {seconds}
+      <div className="subs">
+        <div className="days">
+          {days}
+          <div className="sub">jours</div>
+        </div>
+        <div className="hours">
+          {hours}
+          <div className="sub">heures</div>
+        </div>
+        <div className="minutes">
+          {minutes}
+          <div className="sub">minutes</div>
+        </div>
+        <div className="seconds">
+          {seconds}
+          <div className="sub">secondes</div>
+        </div>
       </div>
     </div>
   )
