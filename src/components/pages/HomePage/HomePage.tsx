@@ -50,15 +50,22 @@ const HomePage = (props: HomePageProps) => {
           </div>
         </div>
       </section>
-      <section className="age">
+      <section className="projects">
         <div className="left-side">
-          <Timer date={1053900000000} />
         </div>
         <div className="right-side">
-          <h6>L'âge</h6>
-          <h3>Temps écoulé depuis le premier instant.</h3>
-          <p><span className="alternate" style={{ color: 'white' }}>{userInfos.name}</span>, vous découvrez deux données : mon âge, ainsi que ce que représente mon âge par rapport à l'univers.</p>
-          <p>La deuxième donnée présente une manière de voir les choses qui ne m'est pas étrangère...</p>
+          <h6>Projets</h6>
+          <h3>Mes projets et organisations.</h3>
+          <p>
+            <span className="rainbow-text">Kharoh Families</span> et&nbsp;&nbsp;
+            <span className="iron-text">Kharoh Family</span> <span className="gold-text">Science</span>&nbsp;
+            sont mes deux principaux projets.
+          </p>
+          <p>
+            J'ai senti la nécessité de monter ces différents projets pour deux raisons :&nbsp;
+            Tout d'abord, afin de maîtriser et de mettre en pratique les différentes technologies dont je connaissais la théorie;&nbsp;
+            Mais aussi car ma tête farfouillais d'idées différentes qu'il fallait matérialiser.
+          </p>
         </div>
       </section>
       <section className="colors">
