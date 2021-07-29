@@ -3,6 +3,8 @@ import { BuildingColor } from "../global";
 export default {
   images: {
     logo: require('./images/global/logo.svg'),
+    kfsLogo: require('./images/global/kfs.svg'),
+    kfiesLogo: require('./images/global/kfies.svg'),
 
     brown: {
       way: require('./images/buildings/way.svg'),
