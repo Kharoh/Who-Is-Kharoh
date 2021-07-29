@@ -6,6 +6,15 @@ export default {
     kfsLogo: require('./images/global/kfs.svg'),
     kfiesLogo: require('./images/global/kfies.svg'),
 
+    cssLogo: require('./images/technos/css.png').default,
+    htmlLogo: require('./images/technos/html.png').default,
+    javascriptLogo: require('./images/technos/javascript.png').default,
+    nodeLogo: require('./images/technos/node.png').default,
+    reactLogo: require('./images/technos/react.png').default,
+    sassLogo: require('./images/technos/sass.png').default,
+    socketioLogo: require('./images/technos/socketio.png').default,
+    typescriptLogo: require('./images/technos/typescript.png').default,
+
     brown: {
       way: require('./images/buildings/way.svg'),
       townhall: require('./images/buildings/townhall.svg'),

@@ -52,8 +52,6 @@ const HomePage = (props: HomePageProps) => {
         </div>
       </section>
       <section className="projects">
-        {/* <div className="left-side">
-        </div> */}
         <div className="right-side">
           <h6>Projets</h6>
           <h3>Mes projets et organisations.</h3>
@@ -126,7 +124,56 @@ const HomePage = (props: HomePageProps) => {
           </div>
         </article>
       </section>
-      <section className="technos"></section>
+      <section className="technos">
+        <div className="right-side">
+          <h6>Technologies</h6>
+          <h3>Technologies maîtrisées.</h3>
+        </div>
+      </section>
+      <section className="technos-presentation">
+        <div className="container">
+          <div className="techno">
+            <img src={assets.images.javascriptLogo} alt="" />
+            <h5>JavaScript</h5>
+            <p>Langage de programmation web flexible et populaire, maîtrisé front-end et back-end, différents projets aboutis.</p>
+          </div>
+          <div className="techno html">
+            <img src={assets.images.htmlLogo} alt="" />
+            <h5>HTML</h5>
+            <p>Langage de structuration de page web, maîtrisé dans les détails, souvent substitué par manipulation du Virtual DOM, JSX ou TSX.</p>
+          </div>
+          <div className="techno">
+            <img src={assets.images.cssLogo} alt="" />
+            <h5>CSS</h5>
+            <p>Langage de stylisation pour les pages web, maîtrisé et les capacités en design sont acquises. Souvent substitué par SCSS.</p>
+          </div>
+          <div className="techno">
+            <img src={assets.images.sassLogo} alt="" />
+            <h5>SCSS</h5>
+            <p>Langage de stylisation s'appuyant sur CSS en y ajoutant de nouvelles syntaxes plus efficaces, grandement maîtrisé et mis en pratique.</p>
+          </div>
+          <div className="techno">
+            <img src={assets.images.typescriptLogo} alt="" />
+            <h5>TypeScript</h5>
+            <p>Superset de JavaScript, grandement maîtrisé et utilisé dans Kharoh Families. TypeScript est mon langage de programmation favoris.</p>
+          </div>
+          <div className="techno">
+            <img src={assets.images.reactLogo} alt="" />
+            <h5>React</h5>
+            <p>Technologie de manipulation du Virtual DOM pour créer des pages web dynamiques. Utilisé dans Kharoh Families et d'autres projets, technologie maîtrisée.</p>
+          </div>
+          <div className="techno">
+            <img src={assets.images.nodeLogo} alt="" />
+            <h5>Nodejs</h5>
+            <p>Runtime de JavaScript utilisé pour le back-end. De nombreux projets construits utilisant Node. Technologie grandement maîtrisée.</p>
+          </div>
+          <div className="techno">
+            <img src={assets.images.socketioLogo} alt="" />
+            <h5>Socket.io</h5>
+            <p>Library JavaScript pour les application web nécessitant une communication serveur en temps réel. Technologie maîtrisée et mise en pratique dans Kharoh Families.</p>
+          </div>
+        </div>
+      </section>
       <section className="learning"></section>
       <footer></footer>
     </div>

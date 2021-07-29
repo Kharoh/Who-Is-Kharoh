@@ -217,9 +217,13 @@
     color: white;
 
     --article-height: 1000px;
-    --article-width: clamp(500px, 45vw, 750px);
+    --article-width: 750px;
     --border-size: 2px;
     --border-radius: 50px;
+    
+    @media (max-width: 1400px) {
+      --article-width: 600px;
+    }
 
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -266,18 +270,21 @@
 
         .dark-section {
           margin-top: 50px;
-          height: 600px;
+          height: 550px;
           width: calc(var(--article-width) - calc(var(--border-size) * 2));
-          border-radius: 50px;
-          background-color: var(--dark-grey-color);
           grid-row: 3;
           grid-column: 1/3;
+
+          position:relative;
+          border-radius: 50px;
+          background-color: var(--dark-grey-color);
 
           display: flex;
           flex-direction: column;
           align-items: center;
 
           h4 {
+            max-width: 100%;
             margin-top: 50px;
             width: 600px;
             text-align: center;
@@ -333,7 +340,8 @@
           }
 
           .links {
-            margin-top: 50px;
+            position: absolute;
+            bottom: 0;
             width: 100%;
 
             display: flex;
@@ -447,8 +455,52 @@
     }
   }
 
-  section.collabs {
-    min-height: 500px;
+  section.technos {
+    min-height: 200px;
+    .right-side {
+      height: 300px;
+      text-align: center;
+    }
+  }
+
+  section.technos-presentation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container {
+      width: min(1300px, 90vw);
+      height: 100%;  
+
+      display: flex;
+      align-items: baseline;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+
+      .techno {
+        width: 250px;
+        height: 400px;
+        margin: 0 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+          max-height: 75px;
+          // filter: drop-shadow(0 0 5px rgb(0, 0, 0, 0.5));
+        }
+
+        h5 {
+          margin-top: 15px;
+          text-align: center;
+        }
+
+        p {
+          text-align: justify;
+        }
+      }
+    }
   }
 
   footer {
