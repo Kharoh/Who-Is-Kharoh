@@ -217,7 +217,7 @@
     color: white;
 
     --article-height: 1000px;
-    --article-width: 750px;
+    --article-width: clamp(500px, 45vw, 750px);
     --border-size: 2px;
     --border-radius: 50px;
 
@@ -244,6 +244,9 @@
         border-radius: calc(var(--border-radius) - var(--border-size));
         overflow: hidden;
 
+        display: grid;
+        grid-template-rows: 200px 200px;
+
         h3 {
           color: white;
           align-self: flex-end;
@@ -264,7 +267,7 @@
         .dark-section {
           margin-top: 50px;
           height: 600px;
-          width: 746px;
+          width: calc(var(--article-width) - calc(var(--border-size) * 2));
           border-radius: 50px;
           background-color: var(--dark-grey-color);
           grid-row: 3;
@@ -339,7 +342,7 @@
 
             & > div {
               height: 185px;
-              width: 350px;
+              width: calc(var(--article-width) * 0.475);
 
               background-color: white;
               cursor: pointer;
@@ -385,9 +388,7 @@
         background: linear-gradient(125deg, var(--families-gradient));
 
         .inner {
-          display: grid;
-          grid-template-rows: 200px 200px;
-          grid-template-columns: 550px 200px;
+          grid-template-columns: calc(var(--article-width) * 0.75) calc(var(--article-width) * 0.25);
 
           h3 {
             transform: translateY(-10px);
@@ -418,15 +419,13 @@
         background: linear-gradient(var(--silver-texture-gradient));
 
         .inner {
-          display: grid;
-          grid-template-rows: 200px 200px;
           grid-template-columns: 200px 550px;
 
           h3 {
             transform: translateY(-10px);
-            width: 400px;
             margin-left: 20px;
-            font-size: 50px;
+            width: 200px;
+            font-size: 35px;
           }
 
           p {

@@ -76,7 +76,7 @@ const HomePage = (props: HomePageProps) => {
               <h4>La réalisation de <span className="rainbow-text">Kharoh Families</span> n'aurait pas été possible sans</h4>
               <div className="collabs">
                 <div className="collab gold">Jerryh</div>
-                <div className="collab silver">Bidul</div>
+                <div className="collab silver">Bidhul</div>
                 <div className="collab silver">Lucile</div>
                 <div className="collab bronze">Stig</div>
                 <div className="collab bronze">Obvious</div>
@@ -107,7 +107,7 @@ const HomePage = (props: HomePageProps) => {
               <h4>Kharoh Family Science remercie ses collaborateurs</h4>
               <div className="collabs">
                 <div className="collab gold">Jerryh</div>
-                <div className="collab silver">Bidul</div>
+                <div className="collab silver">Bidhul</div>
                 <div className="collab silver">SMZ</div>
               </div>
               <div className="links">
