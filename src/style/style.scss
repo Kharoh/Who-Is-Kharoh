@@ -76,6 +76,11 @@ h2 {
   user-select: none;
 }
 
+h4 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
 h6 {
   font-size: 20px;
   font-weight: 500;
@@ -95,4 +100,27 @@ p {
   font-family: "Montserrat Alternates", sans-serif;
   font-style: italic;
   color: var(--dark-grey-color);
+}
+
+.rainbow-text,
+.iron-text,
+.gold-text {
+  display: inline;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text !important;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+.rainbow-text {
+  background: linear-gradient(90deg, var(--families-gradient));
+}
+
+.iron-text {
+  background: linear-gradient(var(--iron-texture-gradient));
+}
+
+.gold-text {
+  background: linear-gradient(var(--gold-texture-gradient));
 }
