@@ -174,7 +174,26 @@ const HomePage = (props: HomePageProps) => {
           </div>
         </div>
       </section>
-      <section className="learning"></section>
+      <section className="learning">
+        <div className="left-side">
+          <p className="sub">Acquis</p>
+          <h5>Les Mathématiques</h5>
+          <p className="sub">Niveau baccalauréat, concours et compétitions.</p>
+          <h5>La Physique</h5>
+          <p className="sub">Niveau baccalauréat, curiosité scientifique accrue.</p>
+          <h5>L'Informatique</h5>
+          <p className="sub">Loisir, aucun diplôme, nombreux projets.</p>
+          <h5>Les technologies impliquées dans les cryptomonnaies</h5>
+          <p className="sub">Fascination, aucun diplôme mais bonne compréhension.</p>
+          <h5>L'Espagnol, l'Allemand, l'Anglais</h5>
+          <p className="sub">Allemand et Anglais niveau baccalauréat, Anglais technique, Espagnol niveau Duolingo...</p>
+        </div>
+        <div className="right-side">
+          <h6>En cours d'apprentissage</h6>
+          <h3>Je ne compte jamais arrêter d'apprendre, et ne souhaite pas ralentir non plus.</h3>
+          <p>Rien n'est en moi plus grande satisfaction en moi que celle de la compréhension. Ma curiosité scientifique naturelle m'amène toujours plus loin dans mon apprentissage, des Mathématiques à la littérature classique, des cryptomonnaies à l'espagnol...</p>
+        </div>
+      </section>
       <footer></footer>
     </div>
   )
