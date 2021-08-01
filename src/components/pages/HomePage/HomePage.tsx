@@ -1,15 +1,51 @@
 import React, { useState, useEffect, useContext } from 'react'
 
+import { BuildingColor, BuildingName } from '../../../global'
+
 import { Assets, UserInfos, Utils } from '../../../context'
 
 import VillageGrid from '../../widgets/VillageGrid'
 import Timer from '../../widgets/Timer'
 import Name from '../../widgets/Name'
+import Chunk from '../../widgets/Chunk'
 
 const HomePage = (props: HomePageProps) => {
   const assets = useContext(Assets)
   const userInfos = useContext(UserInfos)
   const utils = useContext(Utils)
+
+  /* Get a random building name */
+  const getRandomBuildingName = (): BuildingName => {
+    const random = Math.random()
+    if (random < 0.5) return 'house'
+    if (0.5 <= random && random < 0.6) return 'market'
+    if (0.6 <= random && random < 0.8) return 'hall'
+    if (0.8 <= random && random < 1) return 'outpost'
+  }
+
+  /* Pick a random building color */
+  const pickRandomBuildingColor = (): BuildingColor => {
+    const colors = ["brown", "pink", "blue", "yellow", "green"] as const
+    return colors[Math.floor(Math.random() * colors.length)]
+  }
+
+  const footerHouses = Array(21).fill(0)
+    .map((_, i) =>
+      <Chunk
+        chunkColor="desert"
+        buildingName={getRandomBuildingName()}
+        buildingColor={pickRandomBuildingColor()}
+        key={i}
+        infoStyle={{ display: "none" }}
+        style={{
+          gridRow: 2,
+          gridColumn: i + 1,
+          margin: i % 2 === 0 ? "0 0 0 0" : "-20px 0 0 0",
+          height: "125px",
+        }}
+      />
+    )
+
 
   return (
     <div id="HomePage">
@@ -102,7 +138,7 @@ const HomePage = (props: HomePageProps) => {
               Kharoh Family Science est une organisation github qui gère plusieurs projets. La plupart des projets sont des sites et ont pour but d'exposer des constructions mathématiques ou informatiques d'une manière élégante. Kharoh Family Science a été fondé dans le but précis d'apprendre la programmation par l'apprentissage.
             </p>
             <div className="dark-section">
-              <h4>Kharoh Family Science remercie ses collaborateurs</h4>
+              <h4><span className="iron-text">Kharoh Family</span> <span className="gold-text">Science</span> remercie ses collaborateurs</h4>
               <div className="collabs">
                 <div className="collab gold">Jerryh</div>
                 <div className="collab silver">Bidhul</div>
@@ -190,11 +226,14 @@ const HomePage = (props: HomePageProps) => {
         </div>
         <div className="right-side">
           <h6>En cours d'apprentissage</h6>
-          <h3>Je ne compte jamais arrêter d'apprendre, et ne souhaite pas ralentir non plus.</h3>
+          <h3>Je compte ne jamais arrêter d'apprendre, et ne souhaite pas ralentir non plus.</h3>
           <p>Rien n'est en moi plus grande satisfaction en moi que celle de la compréhension. Ma curiosité scientifique naturelle m'amène toujours plus loin dans mon apprentissage, des Mathématiques à la littérature classique, des cryptomonnaies à l'espagnol...</p>
         </div>
       </section>
-      <footer></footer>
+      <footer>
+        <img src={assets.images.logo} alt="" className="logo" />
+        {footerHouses}
+      </footer>
     </div>
   )
 }

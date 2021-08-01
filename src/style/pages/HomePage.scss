@@ -526,5 +526,18 @@
     height: var(--footer-height);
 
     background-color: var(--dark-grey-color);
+
+    display: grid;
+    grid-template-columns: repeat(21, calc(100% / 21));
+    grid-template-rows: repeat(2, calc(var(--footer-height) * 0.5));
+
+    img.logo {
+      max-height: calc(var(--footer-height) * 0.4);
+      grid-column: 11;
+      justify-self: center;
+      align-self: flex-end;
+
+      filter: drop-shadow(0 0 15px rgb(0, 0, 0, 0.5));
+    }
   }
 }
